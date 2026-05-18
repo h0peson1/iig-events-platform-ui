@@ -9,9 +9,10 @@ import HERO_IMG from '../../Images/1.jpg.jpeg'
 const ROSEWOOD_IMG = 'https://uxcanvas.ai/api/generated-images/517030df-44f4-4ce0-922f-6c66f5c4b9f7/ddf14f93-059d-4fb4-a766-e3c1c2681254'
 const APEX_IMG = 'https://uxcanvas.ai/api/generated-images/517030df-44f4-4ce0-922f-6c66f5c4b9f7/0bea2ffb-2f3d-4768-8324-cdc370c6d467'
 const LORDS_IMG = 'https://uxcanvas.ai/api/generated-images/517030df-44f4-4ce0-922f-6c66f5c4b9f7/c5e873ee-e94e-427c-a6f1-e9fa7c3b1874'
+import ABOUT_BG_IMG from '../../Images/2.jpg'
 import TARIQ_IMG from '../../Images/Tariq Rezaei.jpg'
 import MAHMOUD_IMG from '../../Images/Mahmoud Nahas.jpeg'
-const TAXI_IMG = 'https://uxcanvas.ai/api/generated-images/517030df-44f4-4ce0-922f-6c66f5c4b9f7/d8984922-a63d-40e4-aa58-bd7c5867753b'
+import TAXI_IMG from '../../Images/3.jpg'
 import IIG_LOGO from '../../Images/IIG_logo_v2_gold_rgb-1-scaled-e1769107661106.png'
 
 const PARTNERS = ['Rosewood Hotels', 'CBRE', 'Knight Frank', 'JLL', 'Savills', 'Deloitte', 'KPMG', 'PwC', 'Investcorp', 'Gulf Capital', 'Lazard', 'Colliers']
@@ -197,18 +198,22 @@ export default function IIGEvents() {
       </section>
 
       {/* SECTION 2 — ABOUT */}
-      <section className="relative w-full py-32 px-6" style={{ background: '#F0E2BC' }} id="about-section">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <section className="relative w-full py-32 px-6 overflow-hidden" id="about-section">
+        <div className="absolute inset-0 z-0">
+          <img src={ABOUT_BG_IMG} alt="Bilateral Events" className="w-full h-full object-cover" style={{ filter: 'brightness(0.2) saturate(0.75)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.96) 100%)' }} />
+        </div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
             <p style={{ fontSize: 10, letterSpacing: 5, textTransform: 'uppercase', color: '#FF7119', fontWeight: 700, marginBottom: 20 }}>About IIG Events</p>
-            <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(36px, 5vw, 62px)', fontWeight: 700, lineHeight: 1.1, color: '#0B0B0B', marginBottom: 28 }}>
+            <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(36px, 5vw, 62px)', fontWeight: 700, lineHeight: 1.1, color: '#fff', marginBottom: 28 }}>
               A Bilateral Events Platform for Gulf and<br />
-              <span style={{ fontStyle: 'italic', color: '#FF7119' }}>British Capital</span>
+              <span style={{ fontStyle: 'italic', color: '#F0E2BC' }}>British Capital</span>
             </h2>
-            <p style={{ fontSize: 17, lineHeight: 1.85, color: 'rgba(11,11,11,0.65)', fontWeight: 300, marginBottom: 20 }}>
+            <p style={{ fontSize: 17, lineHeight: 1.85, color: 'rgba(255,255,255,0.7)', fontWeight: 300, marginBottom: 20 }}>
               IIG Events & Marketing bridges the Gulf and British capital markets through exclusive, invitation-only investment events. With offices in London and Riyadh, we curate cross-border experiences that connect high-net-worth investors, sovereign wealth representatives, and premier real estate principals.
             </p>
-            <p style={{ fontSize: 17, lineHeight: 1.85, color: 'rgba(11,11,11,0.65)', fontWeight: 300 }}>
+            <p style={{ fontSize: 17, lineHeight: 1.85, color: 'rgba(255,255,255,0.7)', fontWeight: 300 }}>
               Our philosophy is simple: quality over quantity. Each event is meticulously produced to foster genuine bilateral investment relationships in environments befitting the world's most discerning capital.
             </p>
           </motion.div>
@@ -221,13 +226,13 @@ export default function IIGEvents() {
               <motion.div key={stat.label}
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -4, boxShadow: '0 24px 60px rgba(255,113,25,0.18)' }}
+                whileHover={{ y: -4, border: '1px solid rgba(255,113,25,0.4)', background: 'rgba(255,255,255,0.06)' }}
                 className="flex items-center gap-8 p-8 cursor-pointer"
-                style={{ background: 'rgba(255,255,255,0.65)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,113,25,0.15)', borderLeft: '3px solid #FF7119', transition: 'all 0.35s ease' }}>
+                style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.08)', borderLeft: '3px solid #FF7119', transition: 'all 0.35s ease' }}>
                 <div style={{ fontFamily: displayFont, fontSize: 56, fontWeight: 700, color: '#FF7119', lineHeight: 1, minWidth: 80 }}>{stat.num}</div>
                 <div>
-                  <div style={{ fontWeight: 700, color: '#0B0B0B', fontSize: 16, letterSpacing: 0.5 }}>{stat.label}</div>
-                  <div style={{ fontSize: 13, color: 'rgba(11,11,11,0.5)', marginTop: 4 }}>{stat.sub}</div>
+                  <div style={{ fontWeight: 700, color: '#fff', fontSize: 16, letterSpacing: 0.5 }}>{stat.label}</div>
+                  <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>{stat.sub}</div>
                 </div>
               </motion.div>
             ))}
