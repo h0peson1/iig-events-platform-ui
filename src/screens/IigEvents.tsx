@@ -60,7 +60,31 @@ export default function IIGEvents() {
   }
 
   return (
-    <div style={{ fontFamily: bodyFont, backgroundColor: '#000', color: '#fff', overflowX: 'hidden' }}>
+    <div style={{ fontFamily: bodyFont, backgroundColor: '#000', color: '#fff', overflowX: 'hidden', position: 'relative' }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes kenburns {
+          0% { transform: scale(1) translate(0, 0); }
+          50% { transform: scale(1.1) translate(-0.8%, -0.4%); }
+          100% { transform: scale(1) translate(0, 0); }
+        }
+        @keyframes float-blob {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(40px, -60px) scale(1.08); }
+          66% { transform: translate(-30px, 30px) scale(0.95); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-kenburns {
+          animation: kenburns 36s ease-in-out infinite;
+        }
+        .animate-float-blob {
+          animation: float-blob 22s infinite ease-in-out;
+        }
+      `}} />
+
+      {/* Floating Ambient Glowing Blobs */}
+      <div className="absolute top-[5%] left-[-10%] w-[550px] h-[550px] rounded-full bg-[#FF7119]/10 blur-[130px] pointer-events-none animate-float-blob z-0" />
+      <div className="absolute top-[35%] right-[-10%] w-[650px] h-[650px] rounded-full bg-[#F0E2BC]/7 blur-[160px] pointer-events-none animate-float-blob z-0" style={{ animationDelay: '-5s', animationDuration: '28s' }} />
+      <div className="absolute bottom-[25%] left-[-5%] w-[450px] h-[450px] rounded-full bg-[#FF7119]/5 blur-[120px] pointer-events-none animate-float-blob z-0" style={{ animationDelay: '-12s', animationDuration: '24s' }} />
 
       {/* NAVBAR */}
       <motion.nav
@@ -147,9 +171,9 @@ export default function IIGEvents() {
       </AnimatePresence>
 
       {/* SECTION 1 — HERO */}
-      <section ref={heroRef} className="relative w-full flex items-center justify-center" style={{ minHeight: '100vh' }} id="about">
-        <motion.div className="absolute inset-0" style={{ y: heroY }}>
-          <img src={HERO_IMG} alt="IIG luxury investment summit" className="w-full h-full object-cover" style={{ filter: 'brightness(0.35) saturate(0.8)' }} />
+      <section ref={heroRef} className="relative w-full flex items-center justify-center overflow-hidden" style={{ minHeight: '100vh' }} id="about">
+        <motion.div className="absolute inset-0 z-0" style={{ y: heroY }}>
+          <img src={HERO_IMG} alt="IIG luxury investment summit" className="w-full h-full object-cover animate-kenburns" style={{ filter: 'brightness(0.35) saturate(0.8)', transformOrigin: 'center center' }} />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, rgba(0,0,0,0.7) 0%, rgba(11,11,11,0.4) 50%, rgba(255,113,25,0.06) 100%)' }} />
           <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 60% 70%, rgba(255,113,25,0.07) 0%, transparent 70%)' }} />
         </motion.div>
@@ -165,11 +189,18 @@ export default function IIGEvents() {
             style={{ fontSize: 11, letterSpacing: 6, textTransform: 'uppercase', color: '#FF7119', fontWeight: 600, marginBottom: 28 }}>
             IIG Events & Marketing — Est. London · Riyadh
           </motion.p>
-          <motion.h1 custom={1} variants={fadeUp as any} initial="hidden" animate="visible"
-            style={{ fontFamily: displayFont, fontSize: 'clamp(52px, 8vw, 100px)', fontWeight: 700, lineHeight: 1.05, color: '#fff', marginBottom: 28 }}>
-            Where Strategy<br />
-            <span style={{ color: '#F0E2BC', fontStyle: 'italic' }}>Meets Exposure</span>
-          </motion.h1>
+          <h1 style={{ fontFamily: displayFont, fontSize: 'clamp(52px, 8vw, 100px)', fontWeight: 700, lineHeight: 1.05, color: '#fff', marginBottom: 28 }}>
+            <span className="block overflow-hidden pb-1">
+              <motion.span className="block" initial={{ y: "100%", opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}>
+                Where Strategy
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden pb-1">
+              <motion.span className="block text-[#F0E2BC] italic" initial={{ y: "100%", opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}>
+                Meets Exposure
+              </motion.span>
+            </span>
+          </h1>
           <motion.p custom={2} variants={fadeUp as any} initial="hidden" animate="visible"
             style={{ fontSize: 18, color: 'rgba(240,226,188,0.75)', letterSpacing: 1, marginBottom: 52, fontWeight: 300 }}>
             IIG Events & Marketing — London · Riyadh
@@ -200,7 +231,7 @@ export default function IIGEvents() {
       {/* SECTION 2 — ABOUT */}
       <section className="relative w-full py-32 px-6 overflow-hidden" id="about-section">
         <div className="absolute inset-0 z-0">
-          <img src={ABOUT_BG_IMG} alt="Bilateral Events" className="w-full h-full object-cover" style={{ filter: 'brightness(0.55) saturate(0.85)' }} />
+          <img src={ABOUT_BG_IMG} alt="Bilateral Events" className="w-full h-full object-cover animate-kenburns" style={{ filter: 'brightness(0.58) saturate(0.85)', transformOrigin: 'center center' }} />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(11,11,11,0.55) 0%, rgba(11,11,11,0.7) 100%)' }} />
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
@@ -226,9 +257,9 @@ export default function IIGEvents() {
               <motion.div key={stat.label}
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -4, border: '1px solid rgba(255,113,25,0.4)', background: 'rgba(255,255,255,0.06)' }}
+                whileHover={{ y: -6, border: '1px solid rgba(255,113,25,0.5)', borderLeft: '3px solid #FF7119', background: 'rgba(255,255,255,0.07)', boxShadow: '0 20px 40px rgba(255,113,25,0.1)' }}
                 className="flex items-center gap-8 p-8 cursor-pointer"
-                style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.08)', borderLeft: '3px solid #FF7119', transition: 'all 0.35s ease' }}>
+                style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.08)', borderLeft: '3px solid #FF7119', transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                 <div style={{ fontFamily: displayFont, fontSize: 56, fontWeight: 700, color: '#FF7119', lineHeight: 1, minWidth: 80 }}>{stat.num}</div>
                 <div>
                   <div style={{ fontWeight: 700, color: '#fff', fontSize: 16, letterSpacing: 0.5 }}>{stat.label}</div>
@@ -257,15 +288,15 @@ export default function IIGEvents() {
               <motion.div key={member.name}
                 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -8 }}
-                className="relative overflow-hidden"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', transition: 'all 0.4s ease' }}>
+                whileHover={{ y: -10, border: '1px solid rgba(255,113,25,0.3)', boxShadow: '0 30px 60px rgba(255,113,25,0.15)' }}
+                className="relative overflow-hidden group rounded-lg"
+                style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                 <div className="relative overflow-hidden w-full" style={{ aspectRatio: '3/4' }}>
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover object-center" style={{ filter: 'brightness(0.8) saturate(0.85)' }} />
+                  <img src={member.img} alt={member.name} className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105" style={{ filter: 'brightness(0.85) saturate(0.9)' }} />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)' }} />
-                  <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(255,113,25,0.12) 0%, transparent 60%)' }} />
+                  <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(255,113,25,0.15) 0%, transparent 60%)' }} />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-transform duration-500 group-hover:translate-y-[-4px]">
                   <h3 style={{ fontFamily: displayFont, fontSize: 30, fontWeight: 700, color: '#fff', marginBottom: 6 }}>{member.name}</h3>
                   <p style={{ fontSize: 12, letterSpacing: 2, textTransform: 'uppercase', color: '#FF7119', fontWeight: 600 }}>{member.title}</p>
                 </div>
@@ -358,10 +389,10 @@ export default function IIGEvents() {
             tag: 'Exclusive Reception'
           }
         ].map((event, i) => (
-          <motion.div key={event.name} className="relative w-full overflow-hidden"
+          <motion.div key={event.name} className="relative w-full overflow-hidden group"
             style={{ minHeight: 520 }}
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 1 }}>
-            <img src={event.img} alt={event.name} className="absolute inset-0 w-full h-full object-cover" style={{ filter: 'brightness(0.3) saturate(0.7)', transition: 'filter 0.5s ease' }} />
+            <img src={event.img} alt={event.name} className="absolute inset-0 w-full h-full object-cover animate-kenburns group-hover:brightness-[0.35] transition-all duration-700" style={{ filter: 'brightness(0.28) saturate(0.65)', transformOrigin: 'center center' }} />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, rgba(255,113,25,0.05) 100%)' }} />
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,113,25,0.06) 0%, transparent 70%)' }} />
             <div className="relative z-10 flex flex-col justify-center h-full px-8 md:px-20 py-20">
