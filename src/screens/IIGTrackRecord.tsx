@@ -4,7 +4,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react'
 import { 
   Menu, X, MapPin, Mail, Phone, ExternalLink, Building2, Building, 
   Home, Briefcase, ChevronRight, BarChart3, Users, CheckCircle, 
-  LineChart, Shield, Search, PieChart, Landmark, ArrowRight
+  LineChart, Shield, Search, PieChart, Landmark, ArrowRight, Globe
 } from 'lucide-react'
 import { useGoogleFont } from '../utils/fonts'
 import { Link } from '@/lib'
@@ -168,7 +168,7 @@ export default function IIGTrackRecord() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-yellow-500/30 w-fit" style={{ background: 'rgba(240,226,188,0.1)' }}>
                           <span style={{ fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: '#F0E2BC', fontWeight: 700 }}>{proj.type}</span>
                         </div>
-                        <h3 style={{ fontFamily: displayFont, fontSize: 40, fontWeight: 700, color: '#fff', mb: 4 }}>{proj.name}</h3>
+                        <h3 style={{ fontFamily: displayFont, fontSize: 40, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{proj.name}</h3>
                         <p className="flex items-center gap-2 mb-8" style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)' }}>
                           <MapPin size={16} color="#FF7119" /> {proj.loc}
                         </p>
@@ -185,7 +185,7 @@ export default function IIGTrackRecord() {
                   className="rounded-3xl p-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32"
                   style={{ background: 'linear-gradient(135deg, #0f2b35 0%, #081a20 100%)', border: '1px solid rgba(255,255,255,0.05)' }}>
                   <div>
-                    <h3 style={{ fontFamily: displayFont, fontSize: 40, fontWeight: 700, color: '#fff', mb: 4 }}>Development Excellence <br /><span className="italic text-[#FF7119]">by the Numbers</span></h3>
+                    <h3 style={{ fontFamily: displayFont, fontSize: 40, fontWeight: 700, color: '#fff', marginBottom: 4 }}>Development Excellence <br /><span className="italic text-[#FF7119]">by the Numbers</span></h3>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
                     {[
@@ -194,7 +194,7 @@ export default function IIGTrackRecord() {
                       { val: '15', label: 'Commercial Spaces' },
                     ].map((s, i) => (
                       <div key={i}>
-                        <div style={{ fontFamily: displayFont, fontSize: 48, fontWeight: 700, color: '#F0E2BC', mb: 2 }}>{s.val}</div>
+                        <div style={{ fontFamily: displayFont, fontSize: 48, fontWeight: 700, color: '#F0E2BC', marginBottom: 2 }}>{s.val}</div>
                         <div style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', fontWeight: 700 }}>{s.label}</div>
                       </div>
                     ))}
@@ -211,7 +211,7 @@ export default function IIGTrackRecord() {
                     <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i*0.1 }}
                       className="p-8 border border-white/5 bg-white/[0.02] rounded-xl hover:bg-white/[0.04] transition-colors">
                       <div style={{ color: '#F0E2BC', marginBottom: 20 }}>{p.icon}</div>
-                      <h4 style={{ fontFamily: displayFont, fontSize: 24, fontWeight: 700, color: '#fff', mb: 10 }}>{p.title}</h4>
+                      <h4 style={{ fontFamily: displayFont, fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 10 }}>{p.title}</h4>
                       <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.5)' }}>{p.desc}</p>
                     </motion.div>
                   ))}
@@ -320,7 +320,7 @@ export default function IIGTrackRecord() {
                   ].map((s, i) => (
                     <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i*0.1 }}
                       className="p-8 text-center bg-white/5 border border-white/10 rounded-2xl">
-                      <div style={{ fontFamily: displayFont, fontSize: 48, fontWeight: 700, color: '#FF7119', mb: 8 }}>{s.stat}</div>
+                      <div style={{ fontFamily: displayFont, fontSize: 48, fontWeight: 700, color: '#FF7119', marginBottom: 8 }}>{s.stat}</div>
                       <div style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.6)', fontWeight: 700 }}>{s.label}</div>
                     </motion.div>
                   ))}
@@ -354,7 +354,7 @@ export default function IIGTrackRecord() {
                     <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i*0.1 }}
                       className="p-10 border border-[#F0E2BC]/30 rounded-2xl bg-gradient-to-b from-white/5 to-transparent flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full border border-[#F0E2BC] flex items-center justify-center mb-6" style={{ color: '#F0E2BC' }}>{b.icon}</div>
-                      <h4 style={{ fontFamily: displayFont, fontSize: 24, fontWeight: 700, color: '#fff', mb: 12 }}>{b.title}</h4>
+                      <h4 style={{ fontFamily: displayFont, fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 12 }}>{b.title}</h4>
                       <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>{b.desc}</p>
                     </motion.div>
                   ))}
@@ -362,13 +362,13 @@ export default function IIGTrackRecord() {
 
                 {/* 5-Step Transaction Cycle */}
                 <div className="mb-24">
-                  <h3 style={{ fontFamily: displayFont, fontSize: 32, fontWeight: 700, color: '#fff', mb: 12, textAlign: 'center' }}>Full Transaction Cycle</h3>
+                  <h3 style={{ fontFamily: displayFont, fontSize: 32, fontWeight: 700, color: '#fff', marginBottom: 12, textAlign: 'center' }}>Full Transaction Cycle</h3>
                   <div className="flex flex-col lg:flex-row gap-4 mt-12">
                     {['Acquisition', 'Structuring', 'Debt Facilitation', 'Asset Management', 'Disposals'].map((step, i) => (
                       <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i*0.1 }}
                         className="flex-1 bg-[#111] border border-white/5 rounded-xl p-6 relative group hover:border-[#FF7119]/50 transition-colors">
                         <div style={{ fontFamily: displayFont, fontSize: 40, fontWeight: 700, color: 'rgba(255,113,25,0.1)', position: 'absolute', top: 10, right: 16 }}>0{i+1}</div>
-                        <h4 style={{ fontSize: 15, fontWeight: 700, color: '#fff', mt: 4, position: 'relative', zIndex: 10 }}>{step}</h4>
+                        <h4 style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginTop: 4, position: 'relative', zIndex: 10 }}>{step}</h4>
                       </motion.div>
                     ))}
                   </div>
@@ -385,7 +385,7 @@ export default function IIGTrackRecord() {
                     <div key={i} className="p-12 bg-[#0B0B0B] hover:bg-[#111] transition-colors flex items-start gap-6">
                       <div style={{ color: '#F0E2BC' }}>{g.icon}</div>
                       <div>
-                        <h4 style={{ fontFamily: displayFont, fontSize: 24, fontWeight: 700, color: '#fff', mb: 8 }}>{g.title}</h4>
+                        <h4 style={{ fontFamily: displayFont, fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 8 }}>{g.title}</h4>
                         <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>{g.desc}</p>
                       </div>
                     </div>
@@ -394,10 +394,10 @@ export default function IIGTrackRecord() {
 
                 {/* Footer Quote Block */}
                 <div className="p-12 md:p-20 text-center rounded-3xl" style={{ background: '#F0E2BC', color: '#0B0B0B' }}>
-                  <p style={{ fontFamily: displayFont, fontSize: 'clamp(24px, 4vw, 36px)', fontStyle: 'italic', lineHeight: 1.4, mb: 20 }}>
+                  <p style={{ fontFamily: displayFont, fontSize: 'clamp(24px, 4vw, 36px)', fontStyle: 'italic', lineHeight: 1.4, marginBottom: 20 }}>
                     "Our objective is not merely to execute transactions, but to act as your strategic partner in building generational wealth through institutional-grade real estate."
                   </p>
-                  <p style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: 2, fontWeight: 700, opacity: 0.7, mb: 10 }}>
+                  <p style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: 2, fontWeight: 700, opacity: 0.7, marginBottom: 10 }}>
                     — International Investment Gate Advisory Team
                   </p>
                   <button className="mt-8 px-8 py-4 bg-black text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-[#FF7119] transition-colors">
