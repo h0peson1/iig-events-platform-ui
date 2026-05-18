@@ -5,7 +5,7 @@ import { Menu, X, ChevronRight, ArrowRight, MapPin, Calendar, Users, Building2, 
 import { useGoogleFont } from '../utils/fonts'
 import { Link } from '@/lib'
 
-import HERO_IMG from '../../Images/COnference-p.jpeg'
+import HERO_IMG from '../../Images/1.jpg.jpeg'
 const ROSEWOOD_IMG = 'https://uxcanvas.ai/api/generated-images/517030df-44f4-4ce0-922f-6c66f5c4b9f7/ddf14f93-059d-4fb4-a766-e3c1c2681254'
 const APEX_IMG = 'https://uxcanvas.ai/api/generated-images/517030df-44f4-4ce0-922f-6c66f5c4b9f7/0bea2ffb-2f3d-4768-8324-cdc370c6d467'
 const LORDS_IMG = 'https://uxcanvas.ai/api/generated-images/517030df-44f4-4ce0-922f-6c66f5c4b9f7/c5e873ee-e94e-427c-a6f1-e9fa7c3b1874'
