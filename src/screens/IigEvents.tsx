@@ -200,8 +200,8 @@ export default function IIGEvents() {
       {/* SECTION 2 — ABOUT */}
       <section className="relative w-full py-32 px-6 overflow-hidden" id="about-section">
         <div className="absolute inset-0 z-0">
-          <img src={ABOUT_BG_IMG} alt="Bilateral Events" className="w-full h-full object-cover" style={{ filter: 'brightness(0.2) saturate(0.75)' }} />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.96) 100%)' }} />
+          <img src={ABOUT_BG_IMG} alt="Bilateral Events" className="w-full h-full object-cover" style={{ filter: 'brightness(0.55) saturate(0.85)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(11,11,11,0.55) 0%, rgba(11,11,11,0.7) 100%)' }} />
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
